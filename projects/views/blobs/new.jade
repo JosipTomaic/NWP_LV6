@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+	h1.
+		#{title}
+	form#formAddBlob(name="addblob",method="post",action="/blobs")
+		p Naziv projekta: 
+			input#inputNaziv(type="text", placeholder="ex. Projekt", name="naziv")
+		p Opis projekta:
+			input#inputOpis(type="text", placeholder="ex. Opis", name="opis")
+		p Cijena projekta: 
+			input#inputCijena(type="number", name="cijena")
+		p Datum početka projekta: 
+			input#inputPocetak(type="date", name="datum_pocetak")
+		p Datum završetka projekta: 
+			input#inputZavrsetak(type="date", name="datum_zavrsetak")
+		p
+			button#btnSubmit(type="submit") submit

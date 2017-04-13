@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+    h1.
+        Projekt ID: #{blob._id}
+    p Naziv projekta: 
+        = blob.naziv_projekta
+    p Opis projekta: 
+        = blob.opis_projekta
+    p Cijena projekta: 
+        = blob.cijena_projekta
+    p Datum početka: 
+        = blob.datum_pocetka
+    p Datum završetka: 
+        = blob.datum_zavrsetka
+    p Clanovi: 
+        = blob.clanovi
+    p
+        a(href='/blobs') Back to list

@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+    h1.
+         #{title}
+    p
+        a(href='/blobs/new') Add new project
+    ul
+        - each blob, i in blobs
+            li ID: 
+                = blob._id
+            li NAZIV: 
+                = blob.naziv_projekta
+            li OPIS: 
+                = blob.opis_projekta
+            li CIJENA: 
+                = blob.cijena_projekta
+            li DATUM POCETKA: 
+                = blob.datum_pocetka
+            li DATUM ZAVRSETKA: 
+                = blob.datum_zavrsetka
+            li CLANOVI TIMA: 
+                = blob.clanovi
+                form(action='/blobs/#{blob._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                    input(type='hidden',value='DELETE',name='_method')
+                    button(type='submit').
+                        Delete
+                p 
+                    a(href='/blobs/#{blob._id}/edit') Edit
+                p 
+                    a(href='/blobs/editmembers/#{blob._id}/#{blob.clanovi}') Add new member
+                p
+                    a(href='/blobs/#{blob._id}') Show
